@@ -1,0 +1,10 @@
+.choice-container {
+   display: inline-flex;
+}
+
+.question {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
