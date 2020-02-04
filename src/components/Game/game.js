@@ -1,38 +1,28 @@
 import React, { Component } from 'react';
 import Question from "./Question/question";
+import {LoadQuestion} from "../helpers/QuestionHelpers";
 
 export default class Game extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             questions: null,
-            currentQuestion: null
+            currentQuestion: null,
+            loading: true
         };
     }
+
     async componentDidMount() {
         const url = `https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple`;
 
         try {
-            const res = await fetch(url);
-            const { results } = await res.json();
-
-            const questions = results.map((loadedQuestion) => {
-                const formattedQuestion = {
-                    question: loadedQuestion.question,
-                    answerChoices: [...loadedQuestion.incorrect_answers]
-                };
-
-                formattedQuestion.answer = Math.floor(Math.random() * 4);
-
-                formattedQuestion.answerChoices.splice(
-                    formattedQuestion.answer,
-                    0,
-                    loadedQuestion.correct_answer
-                );
-
-                return formattedQuestion;
-            });
-            this.setState({ questions, currentQuestion: questions[0] });
+            const questions = await LoadQuestion()
+            console.log(questions)
+            this.setState({
+                questions,
+                currentQuestion: questions[0],
+                loading: false });
         } catch (err) {
             console.error(err);
         }
@@ -41,7 +31,8 @@ export default class Game extends Component {
     render() {
         return (
             <>
-                {this.state.currentQuestion && (
+                {this.state.loading && <div id='loader'/>}
+                {!this.state.loading && this.state.currentQuestion && (
                     <Question question={this.state.currentQuestion} />
                 )}
             </>
