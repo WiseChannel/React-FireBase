@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Question from "./Question/question";
 import { LoadQuestion } from "../helpers/QuestionHelpers";
 import HUD from "./HUD";
+import SaveScoreForm from "./SaveCoreform/saveScoreForm";
 
 export default class Game extends Component {
     constructor(props) {
@@ -75,7 +76,8 @@ export default class Game extends Component {
                         />
                     </div>
                 )}
-                {this.state.done && <h1>DONE!!</h1>}
+
+                {this.state.done &&  <SaveScoreForm score={this.state.score}/>}
             </>
         );
     }
