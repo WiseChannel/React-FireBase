@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/React-FireBase/static/css/main.a51fa522.chunk.css",
-    "main.js": "/React-FireBase/static/js/main.17538f22.chunk.js",
-    "main.js.map": "/React-FireBase/static/js/main.17538f22.chunk.js.map",
-    "runtime-main.js": "/React-FireBase/static/js/runtime-main.6bac0d31.js",
-    "runtime-main.js.map": "/React-FireBase/static/js/runtime-main.6bac0d31.js.map",
-    "static/js/2.7c0a7220.chunk.js": "/React-FireBase/static/js/2.7c0a7220.chunk.js",
-    "static/js/2.7c0a7220.chunk.js.map": "/React-FireBase/static/js/2.7c0a7220.chunk.js.map",
-    "index.html": "/React-FireBase/index.html",
-    "precache-manifest.82866b581ba05c78a1a537ff474b6ef4.js": "/React-FireBase/precache-manifest.82866b581ba05c78a1a537ff474b6ef4.js",
-    "service-worker.js": "/React-FireBase/service-worker.js",
-    "static/css/main.a51fa522.chunk.css.map": "/React-FireBase/static/css/main.a51fa522.chunk.css.map",
-    "static/js/2.7c0a7220.chunk.js.LICENSE.txt": "/React-FireBase/static/js/2.7c0a7220.chunk.js.LICENSE.txt"
+    "main.css": "/WiseChannel/React-FireBase/static/css/main.a51fa522.chunk.css",
+    "main.js": "/WiseChannel/React-FireBase/static/js/main.21ad04f3.chunk.js",
+    "main.js.map": "/WiseChannel/React-FireBase/static/js/main.21ad04f3.chunk.js.map",
+    "runtime-main.js": "/WiseChannel/React-FireBase/static/js/runtime-main.add66946.js",
+    "runtime-main.js.map": "/WiseChannel/React-FireBase/static/js/runtime-main.add66946.js.map",
+    "static/js/2.61665f0c.chunk.js": "/WiseChannel/React-FireBase/static/js/2.61665f0c.chunk.js",
+    "static/js/2.61665f0c.chunk.js.map": "/WiseChannel/React-FireBase/static/js/2.61665f0c.chunk.js.map",
+    "index.html": "/WiseChannel/React-FireBase/index.html",
+    "precache-manifest.2de1a565faca86a665c4f6e3ae42f5f3.js": "/WiseChannel/React-FireBase/precache-manifest.2de1a565faca86a665c4f6e3ae42f5f3.js",
+    "service-worker.js": "/WiseChannel/React-FireBase/service-worker.js",
+    "static/css/main.a51fa522.chunk.css.map": "/WiseChannel/React-FireBase/static/css/main.a51fa522.chunk.css.map",
+    "static/js/2.61665f0c.chunk.js.LICENSE.txt": "/WiseChannel/React-FireBase/static/js/2.61665f0c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.6bac0d31.js",
-    "static/js/2.7c0a7220.chunk.js",
+    "static/js/runtime-main.add66946.js",
+    "static/js/2.61665f0c.chunk.js",
     "static/css/main.a51fa522.chunk.css",
-    "static/js/main.17538f22.chunk.js"
+    "static/js/main.21ad04f3.chunk.js"
   ]
 }
