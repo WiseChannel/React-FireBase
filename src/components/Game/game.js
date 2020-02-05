@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import Question from "./Question/question";
 import { LoadQuestion } from "../helpers/QuestionHelpers";
-import HUD from "./HUD";
+import HUD from "./Hud/HUD";
 import SaveScoreForm from "./SaveCoreform/saveScoreForm";
 
 export default function Game({history}) {
