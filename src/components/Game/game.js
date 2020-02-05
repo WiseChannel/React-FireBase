@@ -1,70 +1,57 @@
-import React, {Component, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import Question from "./Question/question";
 import { LoadQuestion } from "../helpers/QuestionHelpers";
 import HUD from "./HUD";
 import SaveScoreForm from "./SaveCoreform/saveScoreForm";
 
-export default class Game extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            questions: null,
-            currentQuestion: null,
-            loading: true,
-            score: 0,
-            questionNumber: 0,
-            done: false
-        };
+export default function Game({history}) {
+
+    const [questions ,setQuestions] = useState([])
+    const [currentQuestion, setCurrentQuestion] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [score, setScore] = useState(0)
+    const [questionNumber, setQuestionNumber] = useState(0)
+    const [done, setDone] = useState(false)
+
+    useEffect(() => {
+        LoadQuestion()
+            .then(setQuestions)
+            .catch(e => console.error(e))
+    },[])
+
+
+    const scoreSaved = () => {
+        history.push('/')
     }
 
-    async componentDidMount() {
+    const changeQuestion = useCallback(
+        (bonus = 0) => {
+            if (questions.length === 0) {
+                setDone(true);
+                return setScore(score + bonus);
+            }
 
-        try {
-            const questions = await LoadQuestion()
-            this.setState({
-                questions
-            },
-                () => {
-                this.changeQuestion()
-                    }
-                )
-        } catch (err) {
-            console.error(err);
-        }
-    }
+            const randomQuestionIndex = Math.floor(
+                Math.random() * questions.length
+            );
+            const currentQuestion = questions[randomQuestionIndex];
+            const remainingQuestions = [...questions];
+            remainingQuestions.splice(randomQuestionIndex, 1);
 
-    scoreSaved = () => {
-        this.props.history.push('/')
-    }
+            setQuestions(remainingQuestions);
+            setCurrentQuestion(currentQuestion);
+            setLoading(false);
+            setScore(score + bonus);
+            setQuestionNumber(questionNumber + 1);
+        },
+        [score,questionNumber,questions,setQuestions,setLoading,setCurrentQuestion,setQuestionNumber]);
 
-    changeQuestion = (bonus = 0) => {
-        if (this.state.questions.length === 0) {
-            return this.setState((prevState) => ({
-                done: true,
-                score: prevState.score + bonus
-            }));
-        }
+        useEffect(() => {
+            if (!currentQuestion && questions.length) {
+                changeQuestion()
+            }
 
-        const randomQuestionIndex = Math.floor(
-            Math.random() * this.state.questions.length)
-
-        const currentQuestion = this.state.questions[randomQuestionIndex]
-
-        const remainingQuestions = [...this.state.questions]
-        remainingQuestions.splice(randomQuestionIndex, 1)
-
-        this.setState((prevState) => ({
-            questions: remainingQuestions,
-            currentQuestion,
-            loading: false,
-            score: prevState.score + bonus,
-            questionNumber: prevState.questionNumber + 1
-        }))
-        console.log('Score state: ',this.state.score)
-    }
-
-    render() {
-        const {loading, done, score, currentQuestion, questionNumber} = this.state
+    }, [currentQuestion, questions, changeQuestion])
 
         return (
             <>
@@ -80,13 +67,11 @@ export default class Game extends Component {
                         />
                         <Question
                             question={currentQuestion}
-                            changeQuestion={this.changeQuestion}
+                            changeQuestion={changeQuestion}
                         />
                     </div>
                 )}
-
-                {done &&  <SaveScoreForm score={score} scoreSaved={this.scoreSaved}/>}
+                {done &&  <SaveScoreForm score={score} scoreSaved={scoreSaved}/>}
             </>
         );
     }
-}
