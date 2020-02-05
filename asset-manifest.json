@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/React-FireBase/static/css/main.a51fa522.chunk.css",
+    "main.js": "/React-FireBase/static/js/main.17538f22.chunk.js",
+    "main.js.map": "/React-FireBase/static/js/main.17538f22.chunk.js.map",
+    "runtime-main.js": "/React-FireBase/static/js/runtime-main.6bac0d31.js",
+    "runtime-main.js.map": "/React-FireBase/static/js/runtime-main.6bac0d31.js.map",
+    "static/js/2.7c0a7220.chunk.js": "/React-FireBase/static/js/2.7c0a7220.chunk.js",
+    "static/js/2.7c0a7220.chunk.js.map": "/React-FireBase/static/js/2.7c0a7220.chunk.js.map",
+    "index.html": "/React-FireBase/index.html",
+    "precache-manifest.82866b581ba05c78a1a537ff474b6ef4.js": "/React-FireBase/precache-manifest.82866b581ba05c78a1a537ff474b6ef4.js",
+    "service-worker.js": "/React-FireBase/service-worker.js",
+    "static/css/main.a51fa522.chunk.css.map": "/React-FireBase/static/css/main.a51fa522.chunk.css.map",
+    "static/js/2.7c0a7220.chunk.js.LICENSE.txt": "/React-FireBase/static/js/2.7c0a7220.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6bac0d31.js",
+    "static/js/2.7c0a7220.chunk.js",
+    "static/css/main.a51fa522.chunk.css",
+    "static/js/main.17538f22.chunk.js"
+  ]
+}
