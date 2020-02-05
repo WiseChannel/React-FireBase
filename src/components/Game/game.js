@@ -7,7 +7,6 @@ import SaveScoreForm from "./SaveCoreform/saveScoreForm";
 export default class Game extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             questions: null,
             currentQuestion: null,
