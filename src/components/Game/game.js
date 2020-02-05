@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Question from "./Question/question";
-import {LoadQuestion} from "../helpers/QuestionHelpers";
+import { LoadQuestion } from "../helpers/QuestionHelpers";
 
 export default class Game extends Component {
     constructor(props) {
@@ -9,41 +9,43 @@ export default class Game extends Component {
         this.state = {
             questions: null,
             currentQuestion: null,
-            loading: true
+            loading: true,
+            score: 0
         };
     }
 
     async componentDidMount() {
-        const url = `https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple`;
 
         try {
             const questions = await LoadQuestion()
-            console.log(questions)
             this.setState({
                 questions
             },
                 () => {
                 this.changeQuestion()
-                }
+                    }
                 )
         } catch (err) {
             console.error(err);
         }
     }
 
-    changeQuestion = () => {
-        const randomQuestionIndex = Math.floor(Math.random() * this.state.questions.length)
+    changeQuestion = (bonus = 0) => {
+        const randomQuestionIndex = Math.floor(
+            Math.random() * this.state.questions.length)
 
         const currentQuestion = this.state.questions[randomQuestionIndex]
 
         const remainingQuestions = [...this.state.questions]
         remainingQuestions.splice(randomQuestionIndex, 1)
 
-        this.setState({
+        this.setState((prevState) => ({
             questions: remainingQuestions,
             currentQuestion,
-            loading: false
-        })
+            loading: false,
+            score: prevState.score + bonus
+        }))
+        console.log('Score state: ',this.state.score)
     }
 
     render() {
