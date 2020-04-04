@@ -1,6 +1,7 @@
 import React from 'react'
 import ProgressBar from "../Progressbar/progressBar";
 
+
 export default function HUD({score, questionNumber}) {
     return(
         <div id="hud">
@@ -10,6 +11,7 @@ export default function HUD({score, questionNumber}) {
                 <ProgressBar
                     max={10}
                     current={questionNumber}
+                    className='ProgressBar'
                 />
             </div>
             <div className='hud'>
