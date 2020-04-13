@@ -17,7 +17,7 @@ export const LoadQuestion = async (
 }
 
 const convertQuestionFromAPI = (rawQuestions) => {
-    return rawQuestions.map((loadedQuestion) => {
+    return rawQuestions.map(loadedQuestion => {
         const formattedQuestion = {
             question: loadedQuestion.question,
             answerChoices: [...loadedQuestion.incorrect_answers]
